@@ -10,7 +10,7 @@ Bu rehberde, Mask R-CNN'in ana bileşenleri ve uygulama alanları üzerine detay
 ### Türkçe Mask R-CNN Rehber
 Türkçe rehber, Mask R-CNN kurulumu ve kullanımı için adım adım açıklamalar sunmaktadır.Python ortamının kurulumu, ve Mask R-CNN ile ilgili detaylar burada yer almaktadır.
 
-[Türkçe Rehberi](https://github.com/BerkBirdal/maskrcnn-rehber)
+[Türkçe Rehber](https://github.com/BerkBirdal/maskrcnn-rehber)
 
 ---
 
