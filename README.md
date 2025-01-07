@@ -331,11 +331,16 @@ Bu adımları izledikten sonra Mask R-CNN’in kurulumunun doğru çalıştığ�
 
 Bu rehber, GTX serisi ekran kartı bulunan sistemlerde Mask R-CNN kurulumunu adım adım açıklamaktadır. Gerekli dosyaların ve yazılımların indirilmesinden başlayarak ortam kurulumu ve COCO API entegrasyonuna kadar her aşama detaylı bir şekilde anlatılmıştır.
 
----
+### Maritime Mask R-CNN Nedir ve Neden Kullanıyoruz?
+
+Maritime Mask R-CNN, standart Mask R-CNN modelinin bir varyasyonudur. Bu model, özellikle denizcilik ve ilgili alanlarda kullanılmak üzere optimize edilmiştir. Eğitim süreci ve veri seti hazırlığı, diğer modellere göre daha kolaydır, bu da kullanıcıların kısa sürede etkili sonuçlar almasını sağlar. Maritime Mask R-CNN, esneklik ve kullanım kolaylığı sunarak özellikle başlangıç seviyesindeki kullanıcılar için ideal bir çözümdür.
+
 
 ## Gereklilikleri İndirme ve Kurma
 
 Mask R-CNN'ı başarıyla çalıştırmak için aşağıdaki adımları sırasıyla takip edin. Öncelikli olarak ek yazılım ve dosyaları yükleyerek ortamı hazırlamalısınız.
+
+
 
 ### 1. Anaconda’yı Yükleyin
 
