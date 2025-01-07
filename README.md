@@ -5,6 +5,25 @@ Bu rehberde, Mask R-CNN'in ana bileşenleri ve uygulama alanları üzerine detay
 
 ![Instance Segmentation Örneği](assets/street.png)
 
+## Versiyonlar / Versions
+
+### Türkçe Mask R-CNN Rehber
+Türkçe rehber, Mask R-CNN kurulumu ve kullanımı için adım adım açıklamalar sunmaktadır.Python ortamının kurulumu, ve Mask R-CNN ile ilgili detaylar burada yer almaktadır.
+
+[Türkçe Rehberi](https://github.com/BerkBirdal/maskrcnn-rehber)
+
+---
+
+### English Mask R-CNN Guide
+The English guide provides step-by-step instructions for the installation and usage of Mask R-CNN. It includes details about setting up the Python environment, and all aspects related to Mask R-CNN.
+
+[English Guide](https://github.com/BerkBirdal/maskrcnn-guide)
+
+---
+
+
+
+
 ## Özellikler
 Mask R-CNN, bir görüntüdeki her nesneyi tespit eder ve bu nesnelerin her biri için bir segmentasyon maskesi oluşturur. 
 Bu yeteneği sayesinde, Mask R-CNN şu alanlarda yoğun olarak kullanılır:
