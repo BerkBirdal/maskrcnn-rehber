@@ -172,6 +172,7 @@ Kurulumdan sonra Anaconda'yı sistem PATH değişkenine eklediğinizden emin olu
 
 - [CUDA 11.2 Download](https://developer.nvidia.com/cuda-downloads)
 - [cuDNN 8.1.0 Download](https://developer.nvidia.com/rdp/cudnn-archive)
+- conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 
 ### 7. C++ Build Tools'u Yükleyin
 
@@ -293,17 +294,7 @@ Bu komut sizi belirtilen klasöre taşır ve dosyalar buraya indirilecektir.
 
 ---
 
-## CUDA ve cuDNN Kurulumu
 
-Conda ortamında CUDA ve cuDNN yükle:
-
-```bash
-conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-```
-
-**Neden gerekli?** CUDA ve cuDNN, GPU tabanlı hesaplamaları optimize ederek TensorFlow'un daha hızlı çalışmasını sağlar.
-
----
 
 ## Deneme Aşaması
 
@@ -335,4 +326,184 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ---
 
 Bu adımları izledikten sonra Mask R-CNN’in kurulumunun doğru çalıştığını test edebilirsiniz. Jupyter Notebook’ta modelin sonuçlarını görselleştirebilir ve kendi veri setlerinizle denemeler yapabilirsiniz. 🚀
+
+## GTX Ekran Kartı için Mask R-CNN Kurulum Rehberi
+
+Bu rehber, GTX serisi ekran kartı bulunan sistemlerde Mask R-CNN kurulumunu adım adım açıklamaktadır. Gerekli dosyaların ve yazılımların indirilmesinden başlayarak ortam kurulumu ve COCO API entegrasyonuna kadar her aşama detaylı bir şekilde anlatılmıştır.
+
+---
+
+## Gereklilikleri İndirme ve Kurma
+
+Mask R-CNN'ı başarıyla çalıştırmak için aşağıdaki adımları sırasıyla takip edin. Öncelikli olarak ek yazılım ve dosyaları yükleyerek ortamı hazırlamalısınız.
+
+### 1. Anaconda’yı Yükleyin
+
+**Neden gerekli?** Python ortamını yönetmek ve izole projeler oluşturmak için kullanılır.
+
+**Nasıl indirilir?** [Anaconda Download](https://www.anaconda.com/download/success)
+
+Kurulumdan sonra Anaconda'yı sistem PATH değişkenine eklediğinizden emin olun. [Detaylı rehber](https://www.geeksforgeeks.org/how-to-setup-anaconda-path-to-environment-variable/)
+
+### 2. Git'i Yükleyin
+
+**Neden gerekli?** Kod depolarını klonlamak ve sürüm kontrolü yapmak için kullanılır.
+
+**Nasıl indirilir?** [Git Download](https://git-scm.com/downloads)
+
+### 3. Python ve Pip'i Yükleyin
+
+**Neden gerekli?** Projenin çalışması için temel yazılım dili ve paket yöneticisidir.
+
+**Nasıl indirilir?** [Python Download](https://www.python.org/downloads/)
+
+### 4. Microsoft 2015 Build Tools'u Yükleyin
+
+**Neden gerekli?** TensorFlow ve bazı Python paketleri C++ kodlarını derlemek için bu aracı kullanır.
+
+**Nasıl indirilir?** [Build Tools Download](https://www.microsoft.com/en-us/download/details.aspx?id=48159)
+
+### 5. Rustup'u Yükleyin
+
+**Neden gerekli?** Mask R-CNN’in bazı bağımlılıkları Rust dilinde yazılmıştır. Rustup, Rust dilinin kolayca yüklenmesini sağlar.
+
+**Nasıl indirilir?** [Rust Install](https://www.rust-lang.org/tools/install)
+
+### 6. CUDA 9.0 ve cuDNN 7.0.5’i Yükleyin
+
+**Neden gerekli?** TensorFlow, NVIDIA CUDA platformu üzerinde hesaplama yaparak GPU'dan yararlanır. CUDA, NVIDIA ekran kartlarının performansını optimize ederken, cuDNN derin öğrenme için gerekli temel kütüphaneleri sunar.
+
+**Nasıl indirilir?**
+
+- [CUDA 9.0 Download](https://developer.nvidia.com/cuda-90-download-archive)
+- [cuDNN 7.0.5 Download](https://developer.nvidia.com/rdp/cudnn-archive)
+
+### 7. C++ Build Tools'u Yükleyin
+
+**Neden gerekli?** Mask R-CNN'in derleme işlemleri için gerekli olan temel bileşendir.
+
+**Nasıl indirilir?** [Visual Studio Build Tools](https://visualstudio.microsoft.com/tr/downloads/?q=build+tools)
+
+### 8. Maritme Mask R-CNN Kod Deposu
+
+**Neden gerekli?** Maritme Mask R-CNN kodları ve yapısı proje içerisinde kullanılır.
+
+**Nasıl indirilir?**
+Aşağıdaki komutu terminalde çalıştırın:
+
+```bash
+git clone https://github.com/Allopart/Maritme_Mask_RCNN.git
+```
+
+**Not:** Bu işlemi yapmadan önce, terminal veya komut istemcisinde Maritme Mask R-CNN klasörünü oluşturmak istediğiniz dizine gidin. Örneğin:
+
+```bash
+cd C:\Users\KullanıcıAdı\ProjeKlasörü
+```
+
+Bu komut sizi belirtilen klasöre taşır ve dosyalar buraya indirilecektir.
+
+### 9. mask_rcnn_coco.h5 Dosyası
+
+**Neden gerekli?** Mask R-CNN’in COCO veri setiyle önceden eğitilmiş ağını kullanabilmesi için bu dosyaya ihtiyacı vardır.
+
+**Nasıl indirilir?** [mask_rcnn_coco.h5 Download](https://github.com/matterport/Mask_RCNN/releases)
+
+**Not:** Bu dosyayı indirdikten sonra, `Maritme_Mask_RCNN` klasörünün içine yerleştirin.
+
+---
+
+## Ortam Kurulumu
+
+Kurulum için gerekli Python ortamını oluşturup kütüphaneleri yükleyin:
+
+### 1. Anaconda Ortamı Oluşturun
+
+```bash
+conda create -n MaskR python=3.6
+```
+
+**Neden gerekli?** İzole bir Python 3.6 ortamı oluşturur.
+
+### 2. Anaconda Ortamını Aktif Hale Getirin
+
+```bash
+conda init
+```
+
+Bu komuttan sonra terminali kapatıp yeniden açın ve aşağıdaki komutla ortamı aktif hale getirin:
+
+```bash
+conda activate MaskR
+```
+
+### 3. TensorFlow ve Diğer Gerekli Kütüphaneleri Yükleyin
+
+```bash
+pip install tensorflow-gpu==1.5
+pip install opencv-python==4.3.0.36
+pip install keras==2.1.5
+pip install h5py==2.10.0
+```
+
+### 4. Ek Kütüphaneleri Yükleyin
+
+```bash
+pip install -r requirements.txt
+```
+
+**Not:** TensorFlow, OpenCV, Keras ve h5py kütüphanelerini `requirements.txt` dosyasından çıkardığınızdan emin olun.
+
+---
+
+## COCO API Kurulumu
+
+Mask R-CNN’i COCO veri setiyle kullanabilmek için COCO API kurulumunu yapın:
+
+### 1. COCO API Kodlarını Klonlayın
+
+```bash
+git clone https://github.com/philferriere/cocoapi.git
+```
+
+### 2. Python API’yi Yükleyin
+
+```bash
+pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+```
+
+---
+
+## Modelin Test Edilmesi
+
+Kurulumun tamamlandığından emin olmak için Mask R-CNN’i test edebilirsiniz:
+
+1. **Jupyter Notebook’u Başlatın**
+
+   ```bash
+   jupyter notebook
+   ```
+
+2. **samples Klasörüne Girin**
+
+   Açılan Jupyter arayüzünde `Maritme_Mask_RCNN` klasöründeki `samples` dizinine gidin. Burada çeşitli örnek projeler bulacaksınız.
+
+3. **Demo Notebook’u Çalıştırın**
+
+   `samples/demo.ipynb` dosyasını açarak her bir hücreyi sırasıyla çalıştırın:
+
+   - Hücreyi seçip `Shift + Enter` tuşlarına basın.
+   - Kod başarıyla çalıştırıldığında hücrenin solundaki `[*]` işareti bir sayı ile değişecektir (örneğin `[1]`).
+
+**Not:** Eğer bir hata alırsanız, hata mesajını dikkatlice okuyarak eksik veya yanlış bir adım olup olmadığını kontrol edin.
+
+---
+
+Bu adımları tamamladıktan sonra GTX ekran kartınızda Mask R-CNN modeliyle çalışmaya hazırsınız! İlerleyen adımlarda kendi veri setlerinizle modeli eğitip test edebilirsiniz. 🚀
+
+
+
+
+
+
 
