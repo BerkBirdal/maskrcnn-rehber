@@ -116,17 +116,29 @@ Ondřej Pešek tarafından yazılan bir [Yüksek Lisans Tezi](https://github.com
 ## Referanslar ve Daha Fazla Bilgi
 
 - **Orijinal Makale**: [Mask R-CNN](https://arxiv.org/abs/1703.06870)
+- **Matterport Mask R-CNN GitHub Deposu**: [Matterport Mask R-CNN](https://github.com/matterport/Mask_RCNN)
+- **Maritme Mask R-CNN GitHub Deposu**: [Maritme Mask R-CNN](https://github.com/Allopart/Maritme_Mask_RCNN)
+- **TensorFlow 2 Uyumluluğu için Mask R-CNN Sürümü**: [leekunhee Mask R-CNN](https://github.com/leekunhee/Mask_RCNN)
 - **Matterport3D Veri Seti**: [Matterport3D](https://matterport.com/gallery/)
 - **COCO Benchmark**: [COCO Dataset](http://cocodataset.org/#home)
+
 
 Mask R-CNN, araştırmacılar ve geliştiriciler için derin öğrenme tabanlı nesne tespiti ve segmentasyon problemlerinde çok yönlü bir aracıdır. Daha fazla bilgi için [Mask R-CNN GitHub](https://github.com/matterport/Mask_RCNN) sayfasına göz atabilirsiniz.
 
 
-# RTX Ekran Kartına Mask R-CNN(https://github.com/leekunhee/Mask_RCNN) Kurulum ve Kullanım Rehberi
+## RTX Ekran Kartına Mask R-CNN Kurulum ve Kullanım Rehberi
 
 Bu rehber, RTX ekran kartı bulunan bir bilgisayarda Mask R-CNN kurulumunu ve çalıştırılmasını adım adım anlatmaktadır. Rehberde gerekli araçlar, ortam kurulumu ve COCO API kurulumu detaylı bir şekilde ele alınmıştır.
 
 ---
+
+### leekunhee Mask R-CNN Nedir ve Neden Kullanıyoruz?
+
+leekunhee Mask R-CNN, TensorFlow 2 ile uyumluluğu sağlamak için özelleştirilmiş bir Mask R-CNN sürümüdür. RTX serisi ekran kartların modern mimarisiyle daha iyi çalışacak şekilde optimize edilmiştir. Bu sürüm, TensorFlow 2’nin sunduğu performans artışı ve güncel API kullanımı avantajlarından faydalanmanıza olanak tanır. leekunhee Mask R-CNN, hem ileri düzey hem de başlangıç seviyesindeki kullanıcılar için modern ve verimli bir çözüm sunar.
+
+---
+
+
 
 ## Gereklilikleri İndirme ve Kurma
 
@@ -331,10 +343,16 @@ Bu adımları izledikten sonra Mask R-CNN’in kurulumunun doğru çalıştığ�
 
 Bu rehber, GTX serisi ekran kartı bulunan sistemlerde Mask R-CNN kurulumunu adım adım açıklamaktadır. Gerekli dosyaların ve yazılımların indirilmesinden başlayarak ortam kurulumu ve COCO API entegrasyonuna kadar her aşama detaylı bir şekilde anlatılmıştır.
 
+
+---
+
+
 ### Maritime Mask R-CNN Nedir ve Neden Kullanıyoruz?
 
 Maritime Mask R-CNN, standart Mask R-CNN modelinin bir varyasyonudur. Bu model, özellikle denizcilik ve ilgili alanlarda kullanılmak üzere optimize edilmiştir. Eğitim süreci ve veri seti hazırlığı, diğer modellere göre daha kolaydır, bu da kullanıcıların kısa sürede etkili sonuçlar almasını sağlar. Maritime Mask R-CNN, esneklik ve kullanım kolaylığı sunarak özellikle başlangıç seviyesindeki kullanıcılar için ideal bir çözümdür.
 
+
+---
 
 ## Gereklilikleri İndirme ve Kurma
 
