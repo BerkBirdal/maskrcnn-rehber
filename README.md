@@ -49,7 +49,7 @@ Bu yeteneği sayesinde, Mask R-CNN şu alanlarda yoğun olarak kullanılır:
 
 ## Adım Adım Tespit Süreci
 
-1. **Ankraj Sıralaması ve Filtreleme**: İlk aşama Bölge Öneri Ağı'nın her adımını görselleştirir ve pozitif ve negatif ankrajları, ayrıca ankraj kutusu iyileştirmelerini gösterir.
+1. **Anchor Sıralaması ve Filtreleme**: İlk aşama Bölge Öneri Ağı'nın her adımını görselleştirir ve pozitif ve negatif Anchorları, ayrıca Anchor kutusu iyileştirmelerini gösterir.
 
     ![Ankraj Sıralaması ve Filtreleme](assets/detection_anchors.png)
 
